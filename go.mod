@@ -1,10 +1,10 @@
 module github.com/chaosmanagement/chewbyte
 
-go 1.17
+go 1.18
 
 require (
 	github.com/google/go-jsonnet v0.18.0
-	github.com/urfave/cli/v2 v2.3.0
+	github.com/urfave/cli/v2 v2.4.0
 	gopkg.in/yaml.v2 v2.4.0
 )
 
