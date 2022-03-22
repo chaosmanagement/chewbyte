@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 )
 
@@ -26,7 +27,7 @@ type FinderConfig struct {
 	multiLevelExtensions bool     // If true extensions will be separated by the first dot in the path, else last one
 }
 
-func newFinderConfig() FinderConfig {
+func NewFinderConfig() FinderConfig {
 	cwd, err := os.Getwd()
 	if err != nil {
 		panic("Unable to get current working directory!")
@@ -135,5 +136,8 @@ func FindFiles(config FinderConfig) ([]string, error) {
 		}
 	}
 
-	return r.GetSlice(), nil
+	files := r.GetSlice()
+	sort.Strings(files)
+
+	return files, nil
 }
